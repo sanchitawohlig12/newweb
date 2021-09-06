@@ -57,19 +57,19 @@ export default {
     return {
       blogData: [
         {
-          title: "How to Document Processes to Scale Your Agency",
+          title: "First Leaf",
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          img: "https://genial-react.envytheme.com/images/agency-blog1.jpg",
+          img: "https://img.freepik.com/free-photo/tree-leaves-dark-pattern-background_232693-137.jpg?size=626&ext=jpg&ga=GA1.2.1936636705.1630627200",
         },
         {
-          title: "15 Employee Feedback Tools to Track Your Team",
+          title: "Second Leaf",
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          img: "https://genial-react.envytheme.com/images/agency-blog2.jpg",
+          img: "https://images.unsplash.com/photo-1541855951501-fc42a85d86d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         },
         {
-          title: "12 Tried-and-True Ways to Improve User",
+          title: "Third Leaf",
           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          img: "https://genial-react.envytheme.com/images/agency-blog3.jpg",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIFos_2BeZoyEmxEg_a1BISGh0zJhxWE3QGnlgc37KJBmottlMglQqC4Jwj4YXo5-u2M0&usqp=CAU",
         },
       ],
     };

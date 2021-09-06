@@ -1,19 +1,19 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <!--h1>{{ title }}</!--h1!-->
+    <Works />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      title: 'Stories will be listed here'
-    }
-  }
-}
+      title: "Stories will be listed here",
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

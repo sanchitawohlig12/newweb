@@ -1,50 +1,60 @@
-<!--template>
-  <div class="head">
-    <!-- :class="{ 'mobile': $vuetify.breakpoint.smAndDown, 'head': $vuetify.breakpoint.smAndUp}"  -->
-    <!--h1 class="mobile">
-      {{ title }}
-    </!--h1>
-    <p class="mobile">Let's Travel Together</p>
-  </div>
-</!--template>
-
-<!--script>
-export default {
-  data() {
-    return {
-      title: "Welcome",
-    };
-  },
-};
-</!--script>
-
-<!--style>
-.head {
-  text-align: center;
-}
-</!--style!-->
-
 <template>
   <div>
-    <v-carousel cycle :height="$vuetify.breakpoint.smAndUp ? '600' : '600'">
+    <v-carousel cycle :height="$vuetify.breakpoint.smAndUp ? '600' : '700'">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
         :src="item.src"
         reverse-transition="fade-transition"
         transition="fade-transition"
-        justify="center"
       >
-        <h1 align="center" class="h1">
-          {{ item.title }}
-        </h1>
-        <h3 class="p">
-          {{ item.caption }}
-        </h3>
-        <v-btn class="btn" x-large rounded color="primary" dark align="center">
-          Get Started
-        </v-btn></v-carousel-item
-      >
+        <div justify="center" align="center">
+          <h1 class="h1">
+            {{ item.title }}
+          </h1>
+          <h3 class="p">
+            {{ item.caption }}
+          </h3>
+          <v-btn class="btn" x-large rounded color="primary" dark>
+            Get Started
+          </v-btn>
+          <div class="play">
+            <v-btn
+              class="mx-2"
+              fab
+              dark
+              color="pink"
+              elevation="24"
+              @click="overlay = !overlay"
+            >
+              <v-icon dark> mdi-play </v-icon>
+            </v-btn>
+          </div>
+          <div class="video">
+            <v-overlay :value="overlay" :absolute="absolute">
+              <div>
+                <video width="600" controls autoplay>
+                  <source src="../../assets/Video/1.mp4" type="video/mp4" />
+                  Your browser does not support HTML video.
+                </video>
+              </div>
+              <div>
+                <v-btn
+                  class="mx-2"
+                  fab
+                  dark
+                  small
+                  color="red"
+                  elevation="24"
+                  @click="overlay = false"
+                >
+                  <v-icon dark> mdi-close </v-icon>
+                </v-btn>
+              </div>
+            </v-overlay>
+          </div>
+        </div>
+      </v-carousel-item>
     </v-carousel>
   </div>
 </template>
@@ -78,6 +88,8 @@ export default {
             "It should be noted that although application software is thought of asa program, it can be anything that runs on a computer.",
         },
       ],
+      overlay: false,
+      absolute: false,
     };
   },
 };
@@ -93,9 +105,11 @@ export default {
   text-align: center;
 }
 .btn {
-  size: 50px;
-  align-content: center;
-  margin-left: 450px;
-  margin-top: 100px;
+  margin-top: 5rem;
+  margin-right: 100px;
+}
+.play {
+  margin-top: -55px;
+  margin-left: 150px;
 }
 </style>
