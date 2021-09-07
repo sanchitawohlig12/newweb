@@ -1,7 +1,14 @@
 <template>
   <div>
     <!--h1>{{ title }}</!--h1!-->
-    <Forms />
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="6">
+        <Forms />
+      </v-col>
+      <v-col cols="12" sm="6">
+        <Info />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
