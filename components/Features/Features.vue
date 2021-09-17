@@ -10,13 +10,22 @@
     <div class="main">
       <v-row>
         <v-col v-for="feature in features" :key="feature" cols="12" sm="4">
-          <div class="data">
-            <h3>
-              <v-icon color="blue" class="pr-3">{{ feature.icon }}</v-icon
-              >{{ feature.title }}
-            </h3>
-            <p class="h4" align="left">{{ feature.desc }}</p>
-          </div>
+          <v-hover v-slot="{ hover }" open-delay="200">
+            <v-card
+              :elevation="hover ? 16 : 2"
+              :class="{ 'on-hover': hover }"
+              height="200"
+              max-width="350"
+            >
+              <div class="data">
+                <h3>
+                  <v-icon color="blue" class="pr-3">{{ feature.icon }}</v-icon
+                  >{{ feature.title }}
+                </h3>
+                <p class="h4" align="left">{{ feature.desc }}</p>
+              </div>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </div>

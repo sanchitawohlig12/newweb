@@ -33,24 +33,23 @@
           <div class="video">
             <v-overlay :value="overlay" :absolute="absolute">
               <div>
-                <video width="600" controls autoplay>
+                <video controls autoplay>
                   <source src="../../assets/Video/1.mp4" type="video/mp4" />
                   Your browser does not support HTML video.
+                  <v-btn
+                    class="mx-2"
+                    fab
+                    dark
+                    small
+                    color="red"
+                    elevation="24"
+                    @click="overlay = false"
+                  >
+                    <v-icon dark> mdi-close </v-icon>
+                  </v-btn>
                 </video>
               </div>
-              <div>
-                <v-btn
-                  class="mx-2"
-                  fab
-                  dark
-                  small
-                  color="red"
-                  elevation="24"
-                  @click="overlay = false"
-                >
-                  <v-icon dark> mdi-close </v-icon>
-                </v-btn>
-              </div>
+              <div></div>
             </v-overlay>
           </div>
         </div>

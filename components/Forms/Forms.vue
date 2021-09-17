@@ -24,7 +24,11 @@
                   color="blue"
                   label="Your Name"
                   required
-                ></v-text-field>
+                >
+                  <template #prepend>
+                    <v-icon color="pink" right>mdi-account-circle </v-icon>
+                  </template>
+                </v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-text-field
@@ -33,7 +37,10 @@
                   color="blue"
                   label="E-mail"
                   required
-                ></v-text-field>
+                  ><template #prepend>
+                    <v-icon color="pink" right>mdi-email </v-icon>
+                  </template>
+                </v-text-field>
               </v-col>
 
               <v-col cols="12" sm="6">
@@ -44,26 +51,33 @@
                   color="blue"
                   label="Subject"
                   required
-                ></v-text-field>
+                  ><template #prepend>
+                    <v-icon color="pink" right>mdi-lead-pencil </v-icon>
+                  </template></v-text-field
+                >
               </v-col>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  type="number"
+                  type="text"
+                  @keypress="onlyNumber"
                   v-model="form.phone"
                   :rules="rules.phone"
                   color="blue"
                   label="Phone Number"
                   maxlength="10"
                   required
-                ></v-text-field>
+                  ><template #prepend>
+                    <v-icon color="pink" right>mdi-phone </v-icon>
+                  </template></v-text-field
+                >
               </v-col>
 
               <v-col cols="12" sm="6">
-                <v-textarea
-                  solo
-                  name="input-7-4"
-                  label="Your Message"
-                ></v-textarea>
+                <v-textarea solo name="input-7-4" label="Your Message">
+                  <template #prepend>
+                    <v-icon color="pink" right>mdi-message-text </v-icon>
+                  </template></v-textarea
+                >
               </v-col>
 
               <v-col cols="12">
@@ -142,9 +156,7 @@ export default {
         ],
         phone: [
           (v1) => !!v1 || "Phone number is required",
-          (v1) =>
-            /^[+][(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\\./0-9]$/.test(v1) ||
-            "Please enter correct mobile number",
+          (v1) => /\d{10}/.test(v1) || "Please enter correct mobile number",
           (v1) =>
             (v1 && v1.length == 10) || "Please enter correct mobile number",
         ],
@@ -177,6 +189,14 @@ export default {
       if (/^[A-Za-z]+$/.test(char)) return true;
       // Match with regex
       else e.preventDefault(); // If not match, don't add to input text
+    },
+    onlyNumber($event) {
+      //console.log($event.keyCode); //keyCodes value
+      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+        // 46 is dot
+        $event.preventDefault();
+      }
     },
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
